@@ -19,6 +19,12 @@ const cnpm = new Client();
 const data = await cnpm.request('cnpm');
 ```
 
+custom cnpm registry
+
+```js
+const cnpm = new Client({ registry: 'http://rnpm.hz.netease.com' });
+```
+
 ## API
 
 - `getPackage(packageName)`: get package info
