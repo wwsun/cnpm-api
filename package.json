@@ -29,6 +29,7 @@
     "urllib": "^2.38.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.8",
     "@babel/preset-env": "^7.16.11",
     "babel-jest": "^27.5.1",
