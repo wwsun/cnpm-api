@@ -1,6 +1,6 @@
 {
   "name": "cnpm-api",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "get cnpm package info",
   "main": "lib/index.js",
   "files": [
@@ -35,5 +35,8 @@
     "jest": "^27.5.1",
     "np": "^7.6.1",
     "rimraf": "^3.0.2"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   }
 }
