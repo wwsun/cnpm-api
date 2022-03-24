@@ -25,4 +25,50 @@ export default class Client {
       .then((res) => res.data)
       .catch((err) => console.error(err));
   }
+
+  async getPackage(packageName, packageVersion) {
+    const path = packageVersion
+      ? `${packageName}/${packageVersion}`
+      : packageName;
+    const data = await this.request(path);
+    const info = packageVersion
+      ? data
+      : pick(data, [
+          'name',
+          'description',
+          'dist-tags',
+          'author',
+          'repository',
+          'keywords',
+          'license',
+        ]);
+    return info;
+  }
+
+  async getPackageVersions(packageName) {
+    const data = await this.request(packageName);
+    const time = data.time;
+    const versions = omit(time, ['modified', 'created']);
+    return versions;
+  }
+}
+
+function pick(obj = {}, keys = []) {
+  const ret = {};
+  keys.forEach((key) => {
+    if (key && obj[key]) {
+      ret[key] = obj[key];
+    }
+  });
+  return ret;
+}
+
+function omit(obj = {}, keys = []) {
+  const ret = {};
+  Object.keys(obj).forEach((key) => {
+    if (!keys.includes[key]) {
+      ret[key] = obj[key];
+    }
+  });
+  return ret;
 }
