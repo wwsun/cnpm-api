@@ -1,0 +1,39 @@
+{
+  "name": "cnpm-api",
+  "version": "1.0.0",
+  "description": "get cnpm package info",
+  "main": "lib/index.js",
+  "files": [
+    "lib/"
+  ],
+  "scripts": {
+    "build": "babel src -d lib",
+    "clean": "rimraf lib/",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "release": "np",
+    "preversion": "yarn build",
+    "prepublishOnly": "yarn test && yarn clean && yarn build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wwsun/cnpm-api.git"
+  },
+  "author": "wwsun<ww.sun@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wwsun/cnpm-api/issues"
+  },
+  "homepage": "https://github.com/wwsun/cnpm-api#readme",
+  "dependencies": {
+    "urllib": "^2.38.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.8",
+    "@babel/preset-env": "^7.16.11",
+    "babel-jest": "^27.5.1",
+    "jest": "^27.5.1",
+    "np": "^7.6.1",
+    "rimraf": "^3.0.2"
+  }
+}
